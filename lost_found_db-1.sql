@@ -31,7 +31,7 @@ USE `lost_and_found`;
 
 CREATE TABLE IF NOT EXISTS `adminactions` (
   `action_id` int(11) NOT NULL AUTO_INCREMENT,
-  `admin_id` int(11) DEFAULT NULL,
+  `admin_id` varchar(50) DEFAULT NULL,
   `item_id` int(11) DEFAULT NULL,
   `action_type` varchar(50) DEFAULT NULL,
   `action_date` date DEFAULT NULL,
@@ -83,7 +83,7 @@ INSERT INTO `categories` (`category_id`, `category_name`) VALUES
 CREATE TABLE IF NOT EXISTS `claims` (
   `claim_id` int(11) NOT NULL AUTO_INCREMENT,
   `item_id` int(11) DEFAULT NULL,
-  `claimed_by` int(11) DEFAULT NULL,
+  `claimed_by` varchar(50) DEFAULT NULL,
   `claim_date` date DEFAULT NULL,
   `status` enum('pending','approved','rejected') DEFAULT NULL,
   `proof_description` text DEFAULT NULL,
@@ -138,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `items` (
   `title` varchar(100) DEFAULT NULL,
   `description` text DEFAULT NULL,
   `category_id` int(11) DEFAULT NULL,
-  `reported_by` int(11) DEFAULT NULL,
+  `reported_by` varchar(50) DEFAULT NULL,
   `status` enum('lost','found','claimed','closed') DEFAULT NULL,
   `date_reported` date DEFAULT NULL,
   PRIMARY KEY (`item_id`),
@@ -189,7 +189,7 @@ INSERT INTO `locations` (`location_id`, `place_name`, `description`) VALUES
 
 CREATE TABLE IF NOT EXISTS `notifications` (
   `notification_id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) DEFAULT NULL,
+  `user_id` varchar(50) DEFAULT NULL,
   `message` text DEFAULT NULL,
   `is_read` tinyint(1) DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -244,7 +244,7 @@ INSERT INTO `reports` (`report_id`, `item_id`, `location_id`, `report_type`, `re
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(50) NOT NULL AUTO_INCREMENT,
   `full_name` varchar(100) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `phone` varchar(20) DEFAULT NULL,
