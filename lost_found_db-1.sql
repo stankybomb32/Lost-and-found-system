@@ -244,7 +244,7 @@ INSERT INTO `reports` (`report_id`, `item_id`, `location_id`, `report_type`, `re
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-  `user_id` varchar(50) NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(50) NOT NULL,
   `full_name` varchar(100) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `phone` varchar(20) DEFAULT NULL,
